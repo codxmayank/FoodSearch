@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
@@ -21,20 +21,24 @@ const SearchScreen = () => {
         updateSearchTerm={updateSearchTerm}
         onSearchSubmit={() => searchApi(searchTerm)}
       />
-      <Text>You are searching for {searchTerm}</Text>
+      <Text style={styles.text}>You are searching for {searchTerm}</Text>
       {!errorMessage.length
-        ? <Text>Found {results.length} results for {searchTerm}</Text>
-        : <Text>{errorMessage}</Text>
+        ? <Text style={styles.text}>Found {results.length} results for {searchTerm}</Text>
+        : <Text style={styles.text}>{errorMessage}</Text>
       }
-      <ResultsList results={filterResultsByPrice('$')} title='Cost Effective' />
-      <ResultsList results={filterResultsByPrice('$$')} title='Bit Pricier' />
-      <ResultsList results={filterResultsByPrice('$$$')} title='Big Spender' />
+      <ScrollView>
+        <ResultsList results={filterResultsByPrice('$')} title='Cost Effective' />
+        <ResultsList results={filterResultsByPrice('$$')} title='Bit Pricier' />
+        <ResultsList results={filterResultsByPrice('$$$')} title='Big Spender' />
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-
+  text: {
+    marginHorizontal: 6
+  }
 });
 
 export default SearchScreen;
