@@ -15,8 +15,6 @@ const ResultsShowScreen = ({ navigation }) => {
     getResult(id);
   }, []);
 
-  console.log(result);
-
   if (!result) {
     return null;
 
