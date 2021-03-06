@@ -4,10 +4,13 @@ import ResultDetails from './ResultDetails';
 import { withNavigation } from 'react-navigation';
 
 const ResultsList = ({ title, results, navigation }) => {
+  if (!results.length) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <Text style={styles.text}>Results: {results.length}</Text>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -32,7 +35,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginHorizontal: 6
+    marginHorizontal: 6,
+    marginBottom: 3
   },
   text: {
     marginHorizontal: 6
