@@ -17,7 +17,6 @@ const ResultsShowScreen = ({ navigation }) => {
 
   if (!result) {
     return null;
-
   }
 
   return (
