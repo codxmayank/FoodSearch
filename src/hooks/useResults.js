@@ -23,7 +23,7 @@ export default () => {
   }
 
   useEffect(() => {
-    searchApi('pasta');
+    searchApi('italian');
   }, []);
 
   return [searchApi, results, errorMessage];
