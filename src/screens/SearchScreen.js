@@ -15,7 +15,7 @@ const SearchScreen = () => {
   };
 
   return (
-    <View>
+    <View style={styles.view}>
       <SearchBar
         searchTerm={searchTerm}
         updateSearchTerm={updateSearchTerm}
@@ -36,6 +36,9 @@ const SearchScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  view: {
+    flex: 1
+  },
   text: {
     marginHorizontal: 6
   }

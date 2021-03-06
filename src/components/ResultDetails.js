@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 const ResultDetails = ({ result }) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: result.image_url }} />
+      <Image style={styles.image} source={{ uri: result ? result.image_url : 'https://wwwcdn.cincopa.com/blogres/wp-content/uploads/2018/12/alt-tag.png' }} />
       <Text style={styles.name}>{result.name}</Text>
       <Text style={styles.review}>{result.rating} Stars, {result.review_count} (Reviews)</Text>
     </View>
